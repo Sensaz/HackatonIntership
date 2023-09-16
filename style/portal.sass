@@ -1,0 +1,26 @@
+@use './global/mixins'
+
+.overlay-poratl
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(56, 56, 56, 0.4)
+    z-index: 1000
+
+.portal
+    position: fixed
+    max-height: 100vh
+    width: 100vw
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background: #FFF
+    padding: 50px
+    z-index: 1001
+    overflow: auto
+    @include mixins.tabletDevice
+        width: 80vw
+        @include mixins.laptopDevice
+            max-width: 50vw

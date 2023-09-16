@@ -1,0 +1,14 @@
+@mixin tabletDevice
+    @media screen and (min-width: 730px)
+        @content
+
+@mixin laptopDevice
+    @media screen and (min-width: 1200px)
+        @content
+
+@mixin flexCenter($justify: flex-start, $align: stretch,$direction: row ,$gap: 0)
+    display: flex
+    justify-content: $justify
+    align-items: $align
+    flex-direction: $direction
+    gap: $gap
