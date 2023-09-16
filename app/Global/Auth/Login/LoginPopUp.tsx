@@ -9,16 +9,21 @@ export const LoginPopUp = () => {
   const [flag, setFlag] = useState(true);
   const handleChangeLoginSystemToBrand = useCallback(() => setFlag(false), []);
   const handleChangeLoginSystemToUser = useCallback(() => setFlag(true), []);
-  const { handleCloseAuthPopUp, showLoginPopUp } = useContext(GlobalContext);
+  const { handleCloseAuthPopUp, showLoginPopUp, handleOpenRegisterPopUp } =
+    useContext(GlobalContext);
   return (
     <Portal open={showLoginPopUp} handleClose={handleCloseAuthPopUp}>
       <div>
         <h2>Loguje się jako</h2>
-        <h2>
+        <h3>
           <span onClick={handleChangeLoginSystemToUser}>Osoba Prywatna</span> /{" "}
           <span onClick={handleChangeLoginSystemToBrand}>Firma</span>
-        </h2>
+        </h3>
         {flag ? <LoginForUser /> : <LoginForBrand />}
+        <p>
+          Niemasz jeszcze konta?{" "}
+          <span onClick={handleOpenRegisterPopUp}>Zarejestruj się</span>
+        </p>
       </div>
     </Portal>
   );

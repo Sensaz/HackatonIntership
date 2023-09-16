@@ -15,13 +15,11 @@ const LoginForBrand = () => {
   } = useForm<LoginForm>();
 
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
-    // Tutaj możesz obsłużyć przesłane dane, np. wysłać je na serwer lub dodać własną logikę autoryzacji.
     console.log(data);
   };
 
   return (
     <div>
-      <h1>Logowanie dla firm</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="email">Adres e-mail:</label>

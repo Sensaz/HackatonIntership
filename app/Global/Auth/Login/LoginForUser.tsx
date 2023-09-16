@@ -20,7 +20,6 @@ const LoginForUser = () => {
 
   return (
     <div>
-      <h1>Logowanie dla firm</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="email">Adres e-mail:</label>
