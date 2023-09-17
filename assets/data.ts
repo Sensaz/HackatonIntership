@@ -70,7 +70,7 @@ export const intershipDataSort: SortSetup[] = [
         selectText: "Dowolna umowa",
         value: "any-contract",
       },
-      { id: 14, selectText: "Umowa Zlecenie", value: "mandate contract" },
+      { id: 14, selectText: "Umowa Zlecenie", value: "mandate-contract" },
       { id: 15, selectText: "Umowa o Prace", value: "contract-of-employment" },
       { id: 16, selectText: "Umowa o Dzieło", value: "contract-work" },
       { id: 17, selectText: "B2B", value: "b2b" },

@@ -17,7 +17,7 @@ const CompanyNavigation = () => {
         <span className="navigaiton__logo">LOGO</span>
       </div>
       <div className="navigation__menu">
-        <AuthButton auth="logoutUser" theme="primary">
+        <AuthButton auth="logoutCompany" theme="primary">
           Wyloguj
         </AuthButton>
         <div>
