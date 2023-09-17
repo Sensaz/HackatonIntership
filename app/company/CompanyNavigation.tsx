@@ -4,6 +4,7 @@ import { AuthButton } from "../Global/Auth/AuthButton";
 import Link from "next/link";
 import { GlobalContext } from "../GlobalContextProvider";
 import { useRouter } from "next/navigation";
+import "@/style/navigation.sass";
 
 const CompanyNavigation = () => {
   const { isCompanyLoggedIn } = useContext(GlobalContext);
@@ -13,19 +14,25 @@ const CompanyNavigation = () => {
   }, [isCompanyLoggedIn]);
   return (
     <nav className="navigation">
-      <div>
-        <span className="navigaiton__logo">LOGO</span>
-      </div>
-      <div className="navigation__menu">
-        <AuthButton auth="logoutCompany" theme="primary">
-          Wyloguj
-        </AuthButton>
+      <main className="navigation__main">
         <div>
-          <Link href="/company/panel">Panel administracyjny</Link>
-          <br />
-          <Link href="/company">Przeglądaj oferty</Link>
+          <span className="navigaiton__logo">LOGO</span>
         </div>
-      </div>
+        <div className="navigation__menu">
+          <AuthButton auth="logoutCompany" theme="primary">
+            Wyloguj
+          </AuthButton>
+          <div>
+            <Link className="navigation__link" href="/company/panel">
+              Panel administracyjny
+            </Link>
+            <br />
+            <Link className="navigation__link" href="/company">
+              Przeglądaj oferty
+            </Link>
+          </div>
+        </div>
+      </main>
     </nav>
   );
 };

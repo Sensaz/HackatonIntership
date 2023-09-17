@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Button } from "../../Button";
+import "@/style/form.sass";
 
 interface FormData {
   firstName: string;
@@ -26,41 +28,49 @@ const RegisterAsUser = () => {
 
   return (
     <div>
-      <h2>Rejestracja użytkownika</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="form__input-wrapper">
           <label>Imię</label>
-          <input {...register("firstName", { required: true })} />
+          <input
+            className="form__input"
+            {...register("firstName", { required: true })}
+          />
           {errors.firstName && <span>Pole "Imię" jest wymagane</span>}
         </div>
 
-        <div>
+        <div className="form__input-wrapper">
           <label>Nazwisko</label>
-          <input {...register("lastName", { required: true })} />
+          <input
+            className="form__input"
+            {...register("lastName", { required: true })}
+          />
           {errors.lastName && <span>Pole "Nazwisko" jest wymagane</span>}
         </div>
 
-        <div>
+        <div className="form__input-wrapper">
           <label>Adres e-mail</label>
           <input
+            className="form__input"
             type="email"
             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           />
           {errors.email && <span>Wprowadź prawidłowy adres email</span>}
         </div>
 
-        <div>
+        <div className="form__input-wrapper">
           <label>Hasło</label>
           <input
+            className="form__input"
             type="password"
             {...register("password", { required: true, minLength: 6 })}
           />
           {errors.password && <span>Hasło musi mieć co najmniej 6 znaków</span>}
         </div>
 
-        <div>
+        <div className="form__input-wrapper">
           <label>Powtórz hasło</label>
           <input
+            className="form__input"
             type="password"
             {...register("confirmPassword", {
               required: true,
@@ -70,7 +80,7 @@ const RegisterAsUser = () => {
           {errors.confirmPassword && <span>Hasła nie pasują do siebie</span>}
         </div>
 
-        <button type="submit">Zarejestruj się</button>
+        <Button>Zarejestruj się</Button>
       </form>
     </div>
   );

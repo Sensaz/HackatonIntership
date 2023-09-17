@@ -25,8 +25,10 @@ export const Portal = ({
           {" "}
           <div className="overlay-poratl" />
           <div className="portal">
-            <Button click={handleClose}>zamknij</Button>
-            <div>{children}</div>
+            <div>
+              <Button click={handleClose}>zamknij</Button>
+              <div>{children}</div>
+            </div>
           </div>
         </div>,
         portalRef.current

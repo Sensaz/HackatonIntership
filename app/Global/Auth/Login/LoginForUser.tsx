@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { GlobalContext } from "@/app/GlobalContextProvider";
+import { Button } from "../../Button";
+import "@/style/form.sass";
 
 interface LoginForm {
   email: string;
@@ -34,32 +36,26 @@ const LoginForUser = () => {
     } else {
       setIncorrectCredentials(true);
     }
-
-    // if (email === "example@gmail.com" && password === "admin") {
-    // handleUserLogin();
-    // handleCloseAuthPopUp();
-    // router.push("/user");
-    // } else {
-    // setIncorrectCredentials(true);
-    // }
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         {incorrectCredentials && <div className="error">Błędne dane</div>}
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="email">Adres e-mail:</label>
           <input
+            className="form__input"
             type="text"
             id="email"
             {...register("email", { required: true })}
           />
           {errors.email && <span className="error">To pole jest wymagane</span>}
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="password">Hasło:</label>
           <input
+            className="form__input"
             type="password"
             id="password"
             {...register("password", { required: true })}
@@ -68,9 +64,8 @@ const LoginForUser = () => {
             <span className="error">To pole jest wymagane</span>
           )}
         </div>
-        <div>
-          <button type="submit">Zaloguj się</button>
-        </div>
+
+        <Button>Zaloguj się</Button>
       </form>
     </div>
   );

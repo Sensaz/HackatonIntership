@@ -2,6 +2,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import "@/style/form.sass";
 
 interface AnnouncementForm {
   title: string;
@@ -45,21 +46,21 @@ const AddAnnouncementPage = () => {
     );
     reset();
   };
-
   return (
     <div>
       <h1>Dodaj ogłoszenie</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="form__input-wrapper">
           <label htmlFor="title">Tytuł ogłoszenia:</label>
           <input
+            className="form__input"
             type="text"
             id="title"
             {...register("title", { required: true })}
           />
           {errors.title && <span className="error">To pole jest wymagane</span>}
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="description">Opis ogłoszenia:</label>
           <textarea
             id="description"
@@ -69,14 +70,20 @@ const AddAnnouncementPage = () => {
             <span className="error">To pole jest wymagane</span>
           )}
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label>Miejsce pracy (wybór wielokrotny):</label>
           <label>
-            <input type="checkbox" {...register("locations")} value="Zdalnie" />{" "}
+            <input
+              className="form__input"
+              type="checkbox"
+              {...register("locations")}
+              value="Zdalnie"
+            />{" "}
             Zdalnie
           </label>
           <label>
             <input
+              className="form__input"
               type="checkbox"
               {...register("locations")}
               value="Bielsko Biała"
@@ -87,7 +94,7 @@ const AddAnnouncementPage = () => {
             <span className="error">To pole jest wymagane</span>
           )}
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="mainTechnology">Główna technologia:</label>
           <select
             id="mainTechnology"
@@ -99,13 +106,19 @@ const AddAnnouncementPage = () => {
             <span className="error">To pole jest wymagane</span>
           )}
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="salaryRange">Opcjonalnie wysokośc stawki:</label>
-          <input type="number" id="salaryRange" {...register("salaryRange")} />
+          <input
+            className="form__input"
+            type="number"
+            id="salaryRange"
+            {...register("salaryRange")}
+          />
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="companyName">Nazwa firmy:</label>
           <input
+            className="form__input"
             type="text"
             id="companyName"
             {...register("companyName", { required: true })}
@@ -114,9 +127,10 @@ const AddAnnouncementPage = () => {
             <span className="error">To pole jest wymagane</span>
           )}
         </div>
-        <div>
+        <div className="form__input-wrapper">
           <label htmlFor="deadline">Termin ogłoszenia:</label>
           <input
+            className="form__input"
             type="date"
             id="deadline"
             {...register("deadline", {

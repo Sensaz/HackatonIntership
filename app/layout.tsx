@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GlobalContextProvider } from "./GlobalContextProvider";
 import { LoginPopUp } from "./Global/Auth/Login/LoginPopUp";
 import { RegisterPopUp } from "./Global/Auth/Register/RegisterPopUp";
+import "@/style/app.sass";
 
 export const metadata: Metadata = {
   title: "Create Next App",

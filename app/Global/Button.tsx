@@ -1,12 +1,13 @@
 "use client";
 import { ReactNode } from "react";
 import classNames from "classnames";
+import "@/style/button.sass";
 
 type ButtonType = {
   children: ReactNode;
   theme?: string;
   className?: string;
-  click: () => void;
+  click?: () => void;
 };
 
 export const Button = ({
@@ -15,7 +16,7 @@ export const Button = ({
   click = () => {},
 }: ButtonType) => {
   return (
-    <button onClick={click} className={classNames(className)}>
+    <button onClick={click} className={classNames(className, "button")}>
       {children}
     </button>
   );

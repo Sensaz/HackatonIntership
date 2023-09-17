@@ -2,10 +2,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../GlobalContextProvider";
 import axios from "axios";
+import { Button } from "./Button";
+import "@/style/IntershipOfferCard.sass";
 
 const IntershipOfferCard = () => {
   const { isUserLoggedIn } = useContext(GlobalContext);
-  const [intershipData, setInterShipData] = useState(null);
+  const [intershipData, setInterShipData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,18 +17,18 @@ const IntershipOfferCard = () => {
 
     fetchData();
   }, []);
-  console.log(intershipData)
+  console.log(intershipData);
   return (
-    <section>
-      <div>
+    <section className="intership-offer-card">
+      <div className="intership-offer-card__wrapper">
         <h3>{intershipData?.title}</h3>
-        <p>{intershipData?.salaryRange}</p>
+        <p>{intershipData?.salaryRange} zł</p>
         <p>{intershipData?.description}</p>
-        <p>{intershipData?.companyName}</p> 
+        <p>{intershipData?.companyName}</p>
         <p>{intershipData?.locations}</p>
-        <p>{intershipData?.deadline}</p>
+        <p>Ogłoszenie wazne do: {intershipData?.deadline}</p>
       </div>
-      {isUserLoggedIn ? <button>Aplikuj</button> : <button>Aplikuj</button>}
+      {isUserLoggedIn ? <Button>Aplikuj</Button> : <Button>Aplikuj</Button>}
     </section>
   );
 };
