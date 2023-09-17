@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { GlobalContext } from "@/app/GlobalContextProvider";
 
 interface LoginForm {
   email: string;
@@ -7,15 +9,19 @@ interface LoginForm {
 }
 
 const LoginForUser = () => {
+  const { handleCloseAuthPopUp } = useContext(GlobalContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>();
-
-  const onSubmit: SubmitHandler<LoginForm> = (data) => {
-    // Tutaj możesz obsłużyć przesłane dane, np. wysłać je na serwer lub dodać własną logikę autoryzacji.
-    console.log(data);
+  const router = useRouter();
+  const onSubmit: SubmitHandler<LoginForm> = async (data) => {
+    const { email, password } = data;
+    if (email === "example@gmail.com" && password === "admin") {
+      handleCloseAuthPopUp();
+      router.push("/user");
+    }
   };
 
   return (

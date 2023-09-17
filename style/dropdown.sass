@@ -1,0 +1,58 @@
+@use './global/mixins'
+
+.dropdown
+    position: relative
+    &--open
+        height: 400px
+    &__wrapper
+        position: sticky
+        top: 77px + 110px
+        @include mixins.tabletDevice
+            top: 206px + 110px
+        @include mixins.laptopDevice
+            top: 140px + 110px
+        display: flex
+        min-height: 100px
+        gap: 30px
+        width: 100%
+        overflow-x: scroll
+        z-index: 2
+        &::-webkit-scrollbar
+            display: none
+    &__button
+        position: relative
+        background: none
+        color: #fff
+        border: 1px solid white
+        padding: 1em 3em 1em 1em
+        min-width: 300px
+        width: fit-content
+        white-space: nowrap
+        background: #222425
+        &--selected
+            background-color: #027bff
+            color: #eed
+        &::before
+            content: ""
+            position: absolute
+            left: -10px
+            top: -20px
+            width: calc(100% + 45px)
+            height: 100px
+            background: white
+            z-index: -1
+    &__menu
+        position: absolute
+        max-height: 300px
+        list-style-type: none
+        background: #1a1a1a
+        padding: 10px
+        overflow: auto
+        z-index: 2
+    &__item
+        padding: 10px
+    &__link
+        color: #dcdcdc
+        &:hover
+            color: white
+            text-decoration: none
