@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface AnnouncementForm {
@@ -9,18 +10,40 @@ interface AnnouncementForm {
   mainTechnology: string;
   salaryRange?: string;
   deadline: Date;
+  companyName: string;
 }
 
 const AddAnnouncementPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<AnnouncementForm>();
 
-  const onSubmit: SubmitHandler<AnnouncementForm> = (data) => {
-    // Tutaj możesz obsłużyć dane z formularza, np. przekazać je do serwera
-    console.log(data);
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  const [minDeadline, setMinDeadline] = useState(currentDate);
+
+  const onSubmit: SubmitHandler<AnnouncementForm> = async (data) => {
+    const companyID = localStorage.getItem("company");
+    const response = await axios.get(
+      `http://localhost:3000/companies/${companyID}`
+    );
+    const companyData = response.data;
+    companyData.internshipAnnouncements.push({
+      ...data,
+      id: new Date().valueOf(),
+    });
+    const updateResponse = await axios.put(
+      `http://localhost:3000/companies/${companyID}`,
+      companyData
+    );
+    const addedInternshipOffer = await axios.post(
+      `http://localhost:3000/internshipOffer`,
+      { ...data, id: new Date().valueOf() }
+    );
+    reset();
   };
 
   return (
@@ -71,7 +94,6 @@ const AddAnnouncementPage = () => {
             {...register("mainTechnology", { required: true })}
           >
             <option value="JavaScript">JavaScript</option>
-            {/* Dodaj inne technologie tutaj, jeśli są dostępne */}
           </select>
           {errors.mainTechnology && (
             <span className="error">To pole jest wymagane</span>
@@ -79,14 +101,28 @@ const AddAnnouncementPage = () => {
         </div>
         <div>
           <label htmlFor="salaryRange">Opcjonalnie wysokośc stawki:</label>
-          <input type="text" id="salaryRange" {...register("salaryRange")} />
+          <input type="number" id="salaryRange" {...register("salaryRange")} />
+        </div>
+        <div>
+          <label htmlFor="companyName">Nazwa firmy:</label>
+          <input
+            type="text"
+            id="companyName"
+            {...register("companyName", { required: true })}
+          />
+          {errors.companyName && (
+            <span className="error">To pole jest wymagane</span>
+          )}
         </div>
         <div>
           <label htmlFor="deadline">Termin ogłoszenia:</label>
           <input
             type="date"
             id="deadline"
-            {...register("deadline", { required: true })}
+            {...register("deadline", {
+              required: true,
+              min: minDeadline,
+            })}
           />
           {errors.deadline && (
             <span className="error">To pole jest wymagane</span>

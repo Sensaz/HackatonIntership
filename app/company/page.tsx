@@ -8,9 +8,6 @@ const CompanyPage = () => {
       {" "}
       <DropDownWrapper>
         <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
       </DropDownWrapper>
     </>
   );

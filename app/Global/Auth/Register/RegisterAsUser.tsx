@@ -22,7 +22,6 @@ const RegisterAsUser = () => {
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     if (data.password !== data.confirmPassword) return;
-    console.log(data);
   };
 
   return (

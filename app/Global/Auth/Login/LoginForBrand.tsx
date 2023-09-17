@@ -1,4 +1,5 @@
 import { GlobalContext } from "@/app/GlobalContextProvider";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -18,18 +19,23 @@ const LoginForBrand = () => {
   const { handleCloseAuthPopUp, handleCompanyLogin } =
     useContext(GlobalContext);
   const router = useRouter();
-  const onSubmit: SubmitHandler<LoginForm> = (data) => {
+  const onSubmit: SubmitHandler<LoginForm> = async (data) => {
     const { email, password, companyName } = data;
-    if (
-      email === "example@gmail.com" &&
-      password === "admin" &&
-      companyName === "BB"
-    ) {
+    const response = await axios.get("http://localhost:3000/companies", {
+      params: {
+        email: email,
+        password: password,
+        companyName: companyName,
+      },
+    });
+    const userData = response.data;
+
+    if (userData.length === 1) {
+      localStorage.setItem("company", userData[0].id);
       handleCompanyLogin();
       handleCloseAuthPopUp();
       router.push("/company");
     }
-    console.log(data);
   };
 
   return (

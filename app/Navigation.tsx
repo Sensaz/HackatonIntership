@@ -19,10 +19,6 @@ const Navigation = () => {
       </div>
       <DropDownWrapper>
         <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
       </DropDownWrapper>
     </nav>
   );

@@ -6,9 +6,6 @@ export default function page() {
     <>
       <DropDownWrapper>
         <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
-        <IntershipOfferCard />
       </DropDownWrapper>
     </>
   );

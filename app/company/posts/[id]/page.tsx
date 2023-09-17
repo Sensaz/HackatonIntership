@@ -1,23 +1,43 @@
-import React from "react";
+"use client";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }: any) => {
+  const [dataFetch, setDataFetch] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const companyID = localStorage.getItem("company");
+      const response = await axios.get(
+        `http://localhost:3000/companies/${companyID}`
+      );
+
+      setDataFetch(
+        response.data.internshipAnnouncements.find(
+          (item: any) => item.id == params.id
+        ) || []
+      );
+    })();
+  }, [params.id]);
+
+
+  console.log(dataFetch);
+
   return (
     <div>
-      Oferta pracy o id {params.id}
-      <h3>Doradca Klienta</h3>
-      <p>Opcjonalne widełki hajsu</p>
-      <p>Ammega Poland Sp. z o.o.</p>
-      <p>Opis oferty</p>
-      <p>Czechowice-Dziedzice, śląskie</p>
-      <p>Zakończona / Wazna do 01.09.2023</p>
       <section>
         <div>
-          <p>Andrzej Nowak</p>
-          <p>CV</p>
+          <h3>{dataFetch?.title}</h3>
+          <p>{dataFetch?.salaryRange || "Niepodano"}</p>
+          <p>{dataFetch?.companyName}</p>
+          <p>{dataFetch?.description}</p>
+          <p>{dataFetch?.mainTechnology}</p>
+          <p>{dataFetch?.locations}</p>
+          <p>{dataFetch?.deadline}</p>
         </div>
       </section>
     </div>
   );
 };
 
-export default page;
+export default Page;

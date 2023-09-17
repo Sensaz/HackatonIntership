@@ -15,7 +15,6 @@ const RegisterAsCompany = () => {
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
   };
 
   return (

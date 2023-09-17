@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "example@gmail.com",
+      "password": "admin"
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "email": "example@gmail.com",
+      "password": "admin",
+      "companyName": "BB",
+      "internshipAnnouncements": [
+        {
+          "title": "elelelelel",
+          "description": "heheszki",
+          "locations": ["Zdalnie"],
+          "mainTechnology": "JavaScript",
+          "salaryRange": "0",
+          "companyName": "Private Project",
+          "deadline": "2023-09-29",
+          "id": 1694944895410
+        },
+        {
+          "title": "joł joł",
+          "description": "eheheheheeh",
+          "locations": ["Zdalnie", "Bielsko Biała"],
+          "mainTechnology": "JavaScript",
+          "salaryRange": "0",
+          "companyName": "BB",
+          "deadline": "2023-09-21",
+          "id": 1694950979555
+        },
+        {
+          "title": "joł joł elo",
+          "description": "eheheheheeh",
+          "locations": ["Zdalnie", "Bielsko Biała"],
+          "mainTechnology": "JavaScript",
+          "salaryRange": "0",
+          "companyName": "BB",
+          "deadline": "2023-09-21",
+          "id": 1694951033824
+        },
+        {
+          "title": "joł joł elo",
+          "description": "eheheheheeh",
+          "locations": ["Zdalnie", "Bielsko Biała"],
+          "mainTechnology": "JavaScript",
+          "salaryRange": "0",
+          "companyName": "BB",
+          "deadline": "2023-09-21",
+          "id": 1694951307495
+        },
+        {
+          "title": "test ostateczny",
+          "description": "ence pence 1231231231",
+          "locations": ["Zdalnie"],
+          "mainTechnology": "JavaScript",
+          "salaryRange": "300",
+          "companyName": "Fajowaw",
+          "deadline": "2023-09-30",
+          "id": 1694951383059
+        },
+        {
+          "title": "fdafdasdfads",
+          "description": "fasdfasdfadsfads",
+          "locations": ["Zdalnie"],
+          "mainTechnology": "JavaScript",
+          "salaryRange": "43",
+          "companyName": "fdasfas",
+          "deadline": "2023-09-29",
+          "id": 1694951451269
+        }
+      ]
+    }
+  ],
+  "internshipOffer": [
+    {
+      "title": "fdafdasdfads",
+      "description": "fasdfasdfadsfads",
+      "locations": ["Zdalnie"],
+      "mainTechnology": "JavaScript",
+      "salaryRange": "43",
+      "companyName": "fdasfas",
+      "deadline": "2023-09-29",
+      "id": 1694951451278
+    }
+  ]
+}

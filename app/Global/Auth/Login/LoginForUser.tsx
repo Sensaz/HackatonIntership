@@ -20,13 +20,28 @@ const LoginForUser = () => {
 
   const onSubmit: SubmitHandler<LoginForm> = async (data) => {
     const { email, password } = data;
-    if (email === "example@gmail.com" && password === "admin") {
-      handleUserLogin()
+    const dataFetch: [{ id: number; email: string; password: string }] | [] =
+      await (
+        await fetch(
+          `http://localhost:3000/users?email=${email}&password=${password}`
+        )
+      ).json();
+
+    if (dataFetch.length === 1) {
+      handleUserLogin();
       handleCloseAuthPopUp();
       router.push("/user");
     } else {
       setIncorrectCredentials(true);
     }
+
+    // if (email === "example@gmail.com" && password === "admin") {
+    // handleUserLogin();
+    // handleCloseAuthPopUp();
+    // router.push("/user");
+    // } else {
+    // setIncorrectCredentials(true);
+    // }
   };
 
   return (
