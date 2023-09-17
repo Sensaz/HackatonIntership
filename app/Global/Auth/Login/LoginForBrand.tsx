@@ -1,4 +1,6 @@
-import React from "react";
+import { GlobalContext } from "@/app/GlobalContextProvider";
+import { useRouter } from "next/navigation";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface LoginForm {
@@ -13,8 +15,20 @@ const LoginForBrand = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>();
-
+  const { handleCloseAuthPopUp, handleCompanyLogin } =
+    useContext(GlobalContext);
+  const router = useRouter();
   const onSubmit: SubmitHandler<LoginForm> = (data) => {
+    const { email, password, companyName } = data;
+    if (
+      email === "example@gmail.com" &&
+      password === "admin" &&
+      companyName === "BB"
+    ) {
+      handleCompanyLogin();
+      handleCloseAuthPopUp();
+      router.push("/company");
+    }
     console.log(data);
   };
 

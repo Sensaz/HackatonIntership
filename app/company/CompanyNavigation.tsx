@@ -5,29 +5,29 @@ import Link from "next/link";
 import { GlobalContext } from "../GlobalContextProvider";
 import { useRouter } from "next/navigation";
 
-const UserNavigation = () => {
-  const { isUserLoggedIn } = useContext(GlobalContext);
+const CompanyNavigation = () => {
+  const { isCompanyLoggedIn } = useContext(GlobalContext);
   const router = useRouter();
   useEffect(() => {
-    if (!isUserLoggedIn) router.push("/");
-  }, [isUserLoggedIn]);
+    if (!isCompanyLoggedIn) router.push("/");
+  }, [isCompanyLoggedIn]);
   return (
     <nav className="navigation">
       <div>
         <span className="navigaiton__logo">LOGO</span>
       </div>
       <div className="navigation__menu">
-        <AuthButton auth="logoutCompany" theme="primary">
+        <AuthButton auth="logoutUser" theme="primary">
           Wyloguj
         </AuthButton>
         <div>
-          <Link href="/user/panel">Panel uzytkownika</Link>
+          <Link href="/company/panel">Panel administracyjny</Link>
           <br />
-          <Link href="/user">Przeglądaj oferty</Link>
+          <Link href="/company">Przeglądaj oferty</Link>
         </div>
       </div>
     </nav>
   );
 };
 
-export default UserNavigation;
+export default CompanyNavigation;

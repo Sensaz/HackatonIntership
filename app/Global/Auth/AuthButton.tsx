@@ -3,13 +3,12 @@
 import React, { ReactNode, useContext, useMemo } from "react";
 import { Button } from "../Button";
 import { GlobalContext } from "../../GlobalContextProvider";
-import { useRouter } from "next/navigation";
 
 type AuthButtonProps = {
   children: ReactNode;
   theme?: string;
   className?: string;
-  auth: "login" | "register" | "logout";
+  auth: "login" | "register" | "logoutUser" | "logoutCompany";
 };
 
 export const AuthButton = ({
@@ -18,14 +17,18 @@ export const AuthButton = ({
   className,
   auth,
 }: AuthButtonProps) => {
-  const { handleOpenLoginPopUp, handleOpenRegisterPopUp, handleUserLogout } =
-    useContext(GlobalContext);
-  const router = useRouter();
+  const {
+    handleOpenLoginPopUp,
+    handleOpenRegisterPopUp,
+    handleUserLogout,
+    handleCompanyLogout,
+  } = useContext(GlobalContext);
   const SHOW_AUTH: { [key: string]: () => void } = useMemo(
     () => ({
       login: handleOpenLoginPopUp,
       register: handleOpenRegisterPopUp,
-      logout: () => handleUserLogout(),
+      logoutUser: handleUserLogout,
+      logoutCompany: handleCompanyLogout,
     }),
     []
   );

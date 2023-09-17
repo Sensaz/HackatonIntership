@@ -4,9 +4,9 @@ import React, { ReactNode, useCallback, useMemo, useState } from "react";
 import { DropDown } from "./DropDown";
 import { useInitialState } from "@/hooks/useInitialState";
 import { useClickObjectCreator } from "@/hooks/useClickObjectCreator";
-import { generateSelectValueMap } from "@/app/user/generateSelectValueMap";
+import { generateSelectValueMap } from "@/app/Global/Dropdown/generateSelectValueMap";
 import { intershipDataSort } from "@/assets";
-import { handleSetDropdownValue } from "@/app/user/handleSetDropdownValue";
+import { handleSetDropdownValue } from "@/app/Global/Dropdown/handleSetDropdownValue";
 import "@/style/dropdown-wrapper.sass";
 import classNames from "classnames";
 

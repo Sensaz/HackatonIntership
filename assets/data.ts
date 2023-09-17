@@ -23,18 +23,18 @@ export const intershipDataSort: SortSetup[] = [
     clickFunctionIsValue: "paymentCategoryValue",
     paramTitle: "payment",
     content: [
-      { id: 1, selectText: "Dowolna kwota", value: "any-price" },
-      { id: 2, selectText: "Bezpłatny", value: "free" },
+      { id: 3, selectText: "Dowolna kwota", value: "any-price" },
+      { id: 4, selectText: "Bezpłatny", value: "free" },
       {
-        id: 3,
+        id: 5,
         selectText: "Do 3 tysięcy",
         value: "three-thousand",
       },
-      { id: 4, selectText: "Do 4 tysięcy", value: "four-thousand" },
-      { id: 5, selectText: "Do 5 tysięcy", value: "five-thousand" },
-      { id: 6, selectText: "Do 6 tysięcy", value: "six-thousand" },
+      { id: 6, selectText: "Do 4 tysięcy", value: "four-thousand" },
+      { id: 7, selectText: "Do 5 tysięcy", value: "five-thousand" },
+      { id: 8, selectText: "Do 6 tysięcy", value: "six-thousand" },
       {
-        id: 7,
+        id: 9,
         selectText: "Do 8 tysięcy",
         value: "eight-thousands",
       },
@@ -49,12 +49,12 @@ export const intershipDataSort: SortSetup[] = [
     paramTitle: "location",
     content: [
       {
-        id: 1,
+        id: 10,
         selectText: "Dowolna lokacja",
         value: "any-location",
       },
-      { id: 2, selectText: "Zdalnie", value: "remote" },
-      { id: 3, selectText: "Bielsko-Biała", value: "bielsko-biala" },
+      { id: 11, selectText: "Zdalnie", value: "remote" },
+      { id: 12, selectText: "Bielsko-Biała", value: "bielsko-biala" },
     ],
   },
   {
@@ -66,14 +66,14 @@ export const intershipDataSort: SortSetup[] = [
     paramTitle: "contract",
     content: [
       {
-        id: 1,
+        id: 13,
         selectText: "Dowolna umowa",
         value: "any-contract",
       },
-      { id: 2, selectText: "Umowa Zlecenie", value: "mandate contract" },
-      { id: 3, selectText: "Umowa o Prace", value: "contract-of-employment" },
-      { id: 4, selectText: "Umowa o Dzieło", value: "contract-work" },
-      { id: 5, selectText: "B2B", value: "b2b" },
+      { id: 14, selectText: "Umowa Zlecenie", value: "mandate contract" },
+      { id: 15, selectText: "Umowa o Prace", value: "contract-of-employment" },
+      { id: 16, selectText: "Umowa o Dzieło", value: "contract-work" },
+      { id: 17, selectText: "B2B", value: "b2b" },
     ],
   },
 ];
