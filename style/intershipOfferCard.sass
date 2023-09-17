@@ -1,4 +1,5 @@
-@import 'tabletDevice'
+@use './global/mixins'
+
 .intership-offer-card
     display: flex
     flex-direction: column
@@ -7,7 +8,9 @@
     width: fit-content
     padding: 0 10px 15px 10px
     margin: 15px auto
-    @include tabletDevice
+    @include mixins.tabletDevice
+        display: inline-block
+        margin: 15px 10px
     &__wrapper
         width: 100%
         text-align: center
