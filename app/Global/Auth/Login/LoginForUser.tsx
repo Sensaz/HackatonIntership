@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { GlobalContext } from "@/app/GlobalContextProvider";
@@ -9,24 +9,30 @@ interface LoginForm {
 }
 
 const LoginForUser = () => {
-  const { handleCloseAuthPopUp } = useContext(GlobalContext);
+  const { handleCloseAuthPopUp, handleUserLogin } = useContext(GlobalContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>();
   const router = useRouter();
+  const [incorrectCredentials, setIncorrectCredentials] = useState(false);
+
   const onSubmit: SubmitHandler<LoginForm> = async (data) => {
     const { email, password } = data;
     if (email === "example@gmail.com" && password === "admin") {
+      handleUserLogin()
       handleCloseAuthPopUp();
       router.push("/user");
+    } else {
+      setIncorrectCredentials(true);
     }
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
+        {incorrectCredentials && <div className="error">Błędne dane</div>}
         <div>
           <label htmlFor="email">Adres e-mail:</label>
           <input

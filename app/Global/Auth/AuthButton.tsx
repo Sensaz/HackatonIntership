@@ -18,14 +18,14 @@ export const AuthButton = ({
   className,
   auth,
 }: AuthButtonProps) => {
-  const { handleOpenLoginPopUp, handleOpenRegisterPopUp } =
+  const { handleOpenLoginPopUp, handleOpenRegisterPopUp, handleUserLogout } =
     useContext(GlobalContext);
   const router = useRouter();
   const SHOW_AUTH: { [key: string]: () => void } = useMemo(
     () => ({
       login: handleOpenLoginPopUp,
       register: handleOpenRegisterPopUp,
-      logout: () => router.push("/"),
+      logout: () => handleUserLogout(),
     }),
     []
   );

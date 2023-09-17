@@ -1,8 +1,16 @@
-import React from "react";
+"use client";
+import React, { useContext, useEffect } from "react";
 import { AuthButton } from "../Global/Auth/AuthButton";
 import Link from "next/link";
+import { GlobalContext } from "../GlobalContextProvider";
+import { useRouter } from "next/navigation";
 
 const UserNavigation = () => {
+  const { isUserLoggedIn } = useContext(GlobalContext);
+  const router = useRouter();
+  useEffect(() => {
+    if (!isUserLoggedIn) router.push("/");
+  }, [isUserLoggedIn]);
   return (
     <nav className="navigation">
       <div>

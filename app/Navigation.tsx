@@ -1,5 +1,7 @@
 import React from "react";
 import { AuthButton } from "./Global/Auth/AuthButton";
+import DropDownWrapper from "./Global/Dropdown/DropDownWrapper";
+import IntershipOfferCard from "./Global/IntershipOfferCard";
 
 const Navigation = () => {
   return (
@@ -15,6 +17,13 @@ const Navigation = () => {
           Zarejestruj
         </AuthButton>
       </div>
+      <DropDownWrapper>
+        <IntershipOfferCard />
+        <IntershipOfferCard />
+        <IntershipOfferCard />
+        <IntershipOfferCard />
+        <IntershipOfferCard />
+      </DropDownWrapper>
     </nav>
   );
 };

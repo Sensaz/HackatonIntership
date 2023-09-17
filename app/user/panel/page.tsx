@@ -1,14 +1,14 @@
 import React from "react";
-import IntershipApplicationCard from "./IntershipApplicationCard";
+import IntershipOfferCard from "../../Global/IntershipOfferCard";
 
 export default function Page() {
   return (
     <div>
       <h1>Twoje aplikacje</h1>
-      <IntershipApplicationCard />
-      <IntershipApplicationCard />
-      <IntershipApplicationCard />
-      <IntershipApplicationCard />
+      <IntershipOfferCard />
+      <IntershipOfferCard />
+      <IntershipOfferCard />
+      <IntershipOfferCard />
     </div>
   );
 }
