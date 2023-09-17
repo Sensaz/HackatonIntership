@@ -3,7 +3,6 @@ import React from "react";
 const IntershipOfferCard = () => {
   return (
     <section>
-      <div>logo</div>
       <div>
         <h3>Doradca Klienta</h3>
         <p>Opcjonalne widełki hajsu</p>
